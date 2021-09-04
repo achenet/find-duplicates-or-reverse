@@ -22,10 +22,10 @@ func main() {
 	args := os.Args
 
 	if len(args) <= 1 {
-        fmt.Println("Write input, enter EOF (Ctrl-D) to end input") 
+		fmt.Println("Write input, enter EOF (Ctrl-D) to end input")
 		reader := bufio.NewReader(os.Stdin)
 		input := []byte{}
-		for  {
+		for {
 			text, err := reader.ReadSlice('\n')
 			if err == io.EOF {
 				fmt.Println("")
@@ -38,7 +38,6 @@ func main() {
 		PrettyPrint(ProcessLineList(lineList))
 		return
 	}
-
 
 	lineList := ReadFileToLineList(args[1])
 	PrettyPrint(ProcessLineList(lineList))
@@ -88,9 +87,9 @@ func ProcessLineList(lineList []string) []string {
 		}
 
 		rev := reverseLine(line)
-        if rev == line {
-            continue
-        }
+		if rev == line {
+			continue
+		}
 		if seen.contains(rev) {
 			seen.increment(rev)
 			seen.increment(line)
